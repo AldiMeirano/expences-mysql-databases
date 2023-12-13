@@ -1,0 +1,1 @@
+{"products":[{"id":1,"name":"sINGA","price":200},{"name":"asus","price":2000,"id":2}],"expenses":[{"name":"asus","nominal":300,"category":"pc","date":"2023-12-12T17:09:16.405Z","id":1},{"name":"keyboard","nominal":200,"category":"pc","date":"2023-12-12T17:12:33.843Z","id":2},{"name":"coca-cola","nominal":100,"category":"drink","date":"2023-12-12T17:12:47.206Z","id":3}]}
