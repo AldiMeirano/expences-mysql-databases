@@ -1,26 +1,16 @@
-import {Response,Request, NextFunction } from "express";
-import db from "../../config/db";
-import { QueryError } from "mysql2";
-import { IExpenses } from "../type/type";
+import { Response, Request, NextFunction } from "express";
+import { PrismaClient } from "@prisma/client";
+import { getExpensesAction } from "../../actions/expenses/getExpensesaAction";
 
-
-
-export const expensesController = (req:Request, res: Response, next:NextFunction) => { 
-      const query = `select * from expense`;
-        db.query(query, (err:QueryError, result:IExpenses[]) => { 
-                if(err){ 
-                        return res.status(500).send(err)
-                }else { 
-                        res.status(200).send({ 
-                                message: "success",
-                                data: result
-                        })
-                }
-
-               
-      
-               
-                
-      
-})
-}
+export const expensesController = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const result = await getExpensesAction();
+    res.status(result.status).send(result);
+  } catch (error) {
+    next(error);
+  }
+};

@@ -1,19 +1,19 @@
-interface IProducts { 
-    id: number,
-    name: string,
-    price: number
+interface IProducts {
+  id: number;
+  name: string;
+  price: number;
 }
 
-export interface IExpenses { 
-    id: number,
-    name:string, 
-    nominal: number,
-    category: string,
-    date: string
+export interface IExpenses {
+  id: number;
+  name: string;
+  nominal: number;
+  category: string;
+  createdAt: string;
+  userId: number;
 }
 
-
-export interface Data { 
-    products: IProducts[],
-    expenses : IExpenses[]
+export interface Data {
+  products: IProducts[];
+  expenses: IExpenses[];
 }

@@ -1,14 +1,15 @@
 import { Response, Request, NextFunction } from "express";
-import { updateExpensesAction } from "../../actions/expenses/updateExpenseAction";
+import { getExpensesByIdAction } from "../../actions/expenses/geExpensesByIdAction";
 
-export const updateExpenses = async (
+export const getExpensesByIdController = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   const id = parseInt(req.params.id);
   try {
-    const result = await updateExpensesAction(id, req.body);
+    const result = await getExpensesByIdAction(id);
+
     res.status(result.status).send(result);
   } catch (error) {
     next(error);
